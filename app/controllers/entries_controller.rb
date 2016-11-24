@@ -4,23 +4,23 @@ class EntriesController < ApplicationController
   end
 
   def create
-     @entry = Entry.new(entry_params)
+    @entry = current_user.entries.build(entry_params)
     if @entry.save
-      flash[:success] = "Create entry successfull!"
-      redirect_to @entry
+      flash[:success] = "Entry created!"
+      redirect_to entry_path(current_user)
     else
       render 'new'
     end
   end
 
   def show
-   
-  end
-
-  def update
+    @entries = Entry.paginate(page: params[:page])
   end
 
   def destroy
+    Entry.find(params[:id]).destroy
+    flash[:success] = "Entry deleted!"
+    redirect_to entry_path(current_user)
   end
 
   private

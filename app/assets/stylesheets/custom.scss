@@ -215,9 +215,7 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
-/* microposts */
-
-.microposts {
+.entries {
   list-style: none;
   padding: 0;
   li {
@@ -228,13 +226,21 @@ input {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
+  .title {
     display: block;
     margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
     }
+  }
+  .body {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }  
   }
   .timestamp {
     color: $gray-light;
@@ -246,6 +252,14 @@ input {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+  }
+}
+
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
   }
 }
 
