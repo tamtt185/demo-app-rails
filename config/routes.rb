@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/add', to: 'entries#new'
   get '/showall', to: 'entries#show'
   resources :users do
     member do
