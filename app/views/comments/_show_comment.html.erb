@@ -1,0 +1,15 @@
+ <%= will_paginate @comment %> 
+
+ <% if @comments.any?%>
+   <% @comments.each do |comment| %>
+   <div class="body_comment">
+     <h3><%= comment.content%> </h5>
+     <h6><b>Comment by: </b><%= comment.user.name%></h5>
+     <h6><b>Created at: </b><%= comment.created_at%> </h6>
+     </div>
+   <% end %> 
+    <%else%>
+   <p class="messages"><i><b>This Entry hasn't comment!</b></i></p>
+<%end%>
+
+  <%= will_paginate @comment %>

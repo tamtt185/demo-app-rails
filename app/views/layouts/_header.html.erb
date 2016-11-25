@@ -12,7 +12,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Add entry", add_path %></li>
-              <li><%= link_to "Show all", showall_path %></li>
+              <li><%= link_to "Show all", show_entries_path %></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -29,7 +29,7 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Entry", showall_path %></li>
+          <li><%= link_to "Entry", show_entries_path %></li>
           <li><%= link_to "Login", new_session_path %></li>
         <% end %>
       </ul>

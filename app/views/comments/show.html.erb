@@ -1,0 +1,29 @@
+ <% if logged_in? %>
+    <h5>created by:<%= @entry.user.name %></h5>
+    <h6>created_at:<%= @entry.created_at %></h6>
+    <h1><%= @entry.title %></h1>
+    <h2><%= @entry.body %></h2>
+ 
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for Comment.new  do |f| %>
+      
+          <%= render 'shared/error_messages', object: f.object %>
+           
+              <%= f.label :content, 'Enter your comment:' %>
+              <%= f.text_area :content, rows: 2, class: 'form-control' %>
+              <%= f.hidden_field :entry_id, value: @entry.id %>
+              <small class="label label-warning">Cannot be blank</small>
+              <%= f.submit 'Submit', class: "btn btn-primary" %>
+       <% end %>
+     </div>
+    </div>
+    <%= render 'show_comment' %>
+ <% else %>
+    <h5>created by:<%= @entry.user.name %></h5>
+    <h6>created_at:<%= @entry.created_at %></h6>
+    <h1><%= @entry.title %></h1>
+    <h2><%= @entry.body %></h2>
+       <%= render 'show_comment' %>
+  <%end %>
+

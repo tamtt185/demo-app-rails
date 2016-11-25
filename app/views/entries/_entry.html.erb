@@ -1,9 +1,9 @@
 <li id="Entry-<%= entry.id %>">	
   <%= link_to gravatar_for(entry.user, size: 50), entry.user %>
   <span class="user"><%= link_to entry.user.name, entry.user %></span>
-  <h5><b><span class="title"><%= entry.title %>  | 
-    <% if current_user?(entry.user) %>
-      <%= link_to "Delete", entry, method: :delete,
+  <h5><b><span class="title"><%= entry.title %>
+      <% if current_user?(entry.user) %>
+       | <%= link_to "Delete", entry, method: :delete,
                             data: {confirm: "Are you sure?"} %>
       <i class="glyphicon glyphicon-trash"></i>
     <% end %>
@@ -13,7 +13,8 @@
     <i>Posted <%= time_ago_in_words(entry.created_at) %> ago.</i>
   </span>
   <span>
+    <% if logged_in? %>
+      <%= link_to "comment", comment_path(entry)%> 
+    <% end %>
   </span>
-
-   
 </li>
