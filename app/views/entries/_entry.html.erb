@@ -13,8 +13,6 @@
     <i>Posted <%= time_ago_in_words(entry.created_at) %> ago.</i>
   </span>
   <span>
-    <% if logged_in? %>
       <%= link_to "comment", comment_path(entry)%> 
-    <% end %>
   </span>
 </li>
