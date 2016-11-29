@@ -8,8 +8,11 @@
       <i class="glyphicon glyphicon-trash"></i>
     <% end %>
   </span></b></h5>
-  <span class="body"><%= entry.body %></span>
-  <span class="timestamp">
+  <span class="body">
+    <%= entry.body %>
+    <%= image_tag entry.picture.url if entry.picture? %>
+  </span>
+ <span class="timestamp">
     <i>Posted <%= time_ago_in_words(entry.created_at) %> ago.</i>
   </span>
   <span>
